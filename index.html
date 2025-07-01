@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpaper Changer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Sri_Lanka.svg" alt="Sri Lanka Flag" class="sl-flag"> Visit Sri Lanka</h1>
+            <p>Discover and set beautiful wallpapers - <a href="https://en.wikipedia.org/wiki/Sri_Lanka" target="_blank" rel="noopener noreferrer">Sri Lanka</a></p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="prevBtn" class="control-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextBtn" class="control-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="wallpaper-container">
+                <img id="currentWallpaper" src="" alt="Current Wallpaper">
+            </div>
+
+            <div class="actions">
+                <button id="setWallpaperBtn" class="action-btn">
+                    <i class="fas fa-download"></i> Set as Wallpaper
+                </button>
+                <button id="favoriteBtn" class="action-btn">
+                    <i class="far fa-heart"></i> Favorite
+                </button>
+            </div>
+
+            <div class="categories">
+                <button class="category-btn active" data-category="nature">Nature</button>
+                <button class="category-btn" data-category="beaches">Beaches</button>
+                <button class="category-btn" data-category="wildlife">Wildlife</button>
+                <button class="category-btn" data-category="waterfalls">Waterfalls</button>
+            </div>
+            <div class="best-places-section">
+                <button id="bestPlacesBtn" class="action-btn"><i class="fas fa-map-marked-alt"></i> Best Places</button>
+                <button id="favoritesListBtn" class="action-btn"><i class="fas fa-heart"></i> Favorites List</button>
+            </div>
+            <!-- Modal for Best Places -->
+            <div id="bestPlacesModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <h2>Best Places to Visit in Sri Lanka</h2>
+                    <ul id="placesList">
+                        <!-- List will be populated by JS -->
+                    </ul>
+                    <div class="map-container">
+                        <iframe id="googleMap" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1267437.073964479!2d79.478454!3d7.873054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2b704c6a0f7b1%3A0x6b3c6e1a6a6a6a6a!2sSri%20Lanka!5e0!3m2!1sen!2slk!4v1680000000000!5m2!1sen!2slk"></iframe>
+                    </div>
+                    <div class="map-search">
+                        <input type="text" id="mapSearchInput" placeholder="Search for a place...">
+                        <button id="mapSearchBtn" class="action-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal for Favorites List -->
+            <div id="favoritesListModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeFavoritesModalBtn">&times;</span>
+                    <h2>Your Favorite Wallpapers</h2>
+                    <div id="favoritesGrid" class="favorites-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+
+    <!-- Chatbot Button and Window -->
+    <div id="chatbotBtn" class="chatbot-btn">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div id="chatbotWindow" class="chatbot-window">
+        <div class="chatbot-header">
+            <span>Travel Assistant</span>
+            <span id="closeChatbot" class="close">&times;</span>
+        </div>
+        <div id="chatArea" class="chat-area"></div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything...">
+            <button id="sendChat" class="action-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+</body>
+</html> 
